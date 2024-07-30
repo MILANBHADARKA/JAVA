@@ -4,6 +4,5 @@ public class It {
     public void print() {
         System.out.println("IT");
     }
-
 }
 
