@@ -30,7 +30,7 @@ public class Email {
 
         // String[] emailParts = email.split("@");
 
-        // if(email.matches(email)) {
+        // if(email.matches(email)) {   //
         //     System.out.println("Email is valid");
         // } else {
         //     System.out.println("Email is invalid");
