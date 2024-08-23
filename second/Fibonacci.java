@@ -2,11 +2,11 @@
 import java.util.Scanner;
 
 
-public class Fibonacci {
+public class Fibonaccii {
     
-    static int fibo(int n){
+    static int hrl(int n){
         if(n==1 || n==2) return 1;
-        return (fibo(n-1) + fibo(n-2));
+        return (hrl(n-1) + hrl(n-2));
     }
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Fibonacci {
 
         int n = sc.nextInt();
 
-        int a = fibo(n);
+        int a = hrl(n);
 
         System.out.println(a);
 
