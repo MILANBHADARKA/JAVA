@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
-import pack.B;
+import lab.pack.B;
 
 
 public class JLabel_Two {

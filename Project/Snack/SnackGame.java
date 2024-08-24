@@ -280,9 +280,13 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
 
 
 
-// String colorString = "#FF5733"; // You can also use "255,87,51"
-//         Color backgroundColor = CustomColorExample.getCustomColor(colorString);
-//         frame.setBackground(backgroundColor);
+
+
+
+
+
+
+
 
 
 // import java.awt.*;
