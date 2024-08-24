@@ -17,6 +17,7 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         }
     }
 
+
     int boardwidth;
     int boardheight;
     int tilesize = 25; // size of each tile in the game board
@@ -40,9 +41,9 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         this.boardheight = boardheight;
 
         setSize(boardwidth, boardheight);
-        setBackground(Color.BLACK);
+        setBackground(new Color(27, 18, 18));
         addKeyListener(this);
-        setFocusable(true);
+        setFocusable(true);   //Ensures the canvas receives keyboard events.
 
         snackHead = new Tile(5, 5);
         snackBody = new ArrayList<Tile>();
@@ -56,6 +57,8 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
 
         gameLoop = new Timer(100, this);
         gameLoop.start();
+
+
     }
 
     @Override
@@ -71,20 +74,17 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         // g.drawLine(0,i*tilesize, boardwidth, i*tilesize);
         // }
 
-        // Food
+        //food
         g.setColor(Color.RED);
-        // g.fillRect(food.x * tilesize, food.y * tilesize, tilesize, tilesize);
         g.fill3DRect(food.x * tilesize, food.y * tilesize, tilesize, tilesize, true);
 
         // draw the snack head
         g.setColor(Color.GREEN);
-        // g.fillRect(snackHead.x * tilesize, snackHead.y * tilesize, tilesize, tilesize);
         g.fill3DRect(snackHead.x * tilesize, snackHead.y * tilesize, tilesize, tilesize, true);
 
         // snack body
         for (int i = 0; i < snackBody.size(); i++) {
             Tile snackPart = snackBody.get(i);
-            // g.fillRect(snackPart.x * tilesize, snackPart.y * tilesize, tilesize, tilesize);
             g.fill3DRect(snackPart.x * tilesize, snackPart.y * tilesize, tilesize, tilesize, true);
         }
 
@@ -97,11 +97,13 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
             g.setColor(Color.WHITE);
             g.drawString("Score: " + String.valueOf(snackBody.size()), tilesize - 16, tilesize);
         }
+
     }
 
     public void placefood() {
-        food.x = random.nextInt(boardwidth / tilesize); // nextInt(int bound) is a method of the Random class. It is used to generate a random integer between 0 (inclusive) and the specified bound (exclusive). In this case, 600/25 = 24. So, the food will be placed at a random x-coordinate between 0 and 24.
+        food.x = random.nextInt(boardwidth / tilesize);
         food.y = random.nextInt(boardheight / tilesize);
+
     }
 
     public boolean collision(Tile tile1, Tile tile2) {
@@ -135,8 +137,7 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
                 gameOver = true;
             }
         }
-        if (snackHead.x * tilesize < 0 || snackHead.x * tilesize > boardwidth || snackHead.y * tilesize < 0
-                || snackHead.y * tilesize >= boardheight) {
+        if (snackHead.x * tilesize < 0 || snackHead.x * tilesize >= boardwidth || snackHead.y * tilesize < 0 || snackHead.y * tilesize >= boardheight) {
             gameOver = true;
         }
 
@@ -204,13 +205,21 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         SnackGame game = new SnackGame(600, 600);
         frame.add(game);
         frame.pack();
-        frame.setSize(600, 600);
+        frame.setSize(650, 650);
+        // frame.setResizable(false);
+
+        Image fevicon = Toolkit.getDefaultToolkit().getImage("./image/download.jpeg");
+        frame.setIconImage(fevicon);
+
+
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 System.exit(0);
             }
         });
+
         frame.setVisible(true);
+
     }
 }
 
