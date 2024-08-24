@@ -25,6 +25,15 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
     int velocityY;
     boolean gameOver = false;
 
+    Color snackcolor;
+    Color BGcolor;
+    Color textcolor;
+    Color over;
+    boolean black = true;
+
+    int speed = 100;
+
+
     // snack
     Tile snackHead;
     ArrayList<Tile> snackBody;
@@ -40,8 +49,14 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         this.boardwidth = boardwidth;
         this.boardheight = boardheight;
 
+        BGcolor = Color.BLACK;
+        snackcolor = Color.GREEN;
+        textcolor = Color.WHITE;
+        over = Color.RED;
+
         setSize(boardwidth, boardheight);
-        setBackground(new Color(27, 18, 18));
+        // setBackground(new Color(27, 18, 18));
+        setBackground(BGcolor);
         addKeyListener(this);
         setFocusable(true);   //Ensures the canvas receives keyboard events.
 
@@ -55,7 +70,7 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         velocityX = 0;
         velocityY = 0;
 
-        gameLoop = new Timer(100, this);
+        gameLoop = new Timer(speed, this);
         gameLoop.start();
 
 
@@ -67,6 +82,9 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
     }
 
     public void draw(Graphics g) {
+
+        setBackground(BGcolor);
+
         // grid
 
         // for(int i= 0 ; i< boardwidth/tilesize; i++){
@@ -79,7 +97,8 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         g.fill3DRect(food.x * tilesize, food.y * tilesize, tilesize, tilesize, true);
 
         // draw the snack head
-        g.setColor(Color.GREEN);
+        // g.setColor(Color.white);
+        g.setColor(snackcolor);
         g.fill3DRect(snackHead.x * tilesize, snackHead.y * tilesize, tilesize, tilesize, true);
 
         // snack body
@@ -91,10 +110,12 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         // score
         g.setFont(new Font("Arial", Font.PLAIN, 16));
         if (gameOver) {
-            g.setColor(Color.RED);
+            // g.setColor(Color.RED);
+            g.setColor(over);
             g.drawString("Game Over: " + String.valueOf(snackBody.size()), tilesize - 16, tilesize);
         } else {
-            g.setColor(Color.WHITE);
+            // g.setColor(Color.WHITE);
+            g.setColor(textcolor);
             g.drawString("Score: " + String.valueOf(snackBody.size()), tilesize - 16, tilesize);
         }
 
@@ -173,6 +194,36 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && velocityX != -1) {
             velocityX = 1;
             velocityY = 0;
+        } else if (e.getKeyCode() == KeyEvent.VK_T){
+            if (black){
+                BGcolor = Color.BLACK;
+                snackcolor = Color.GREEN;
+                textcolor = Color.WHITE;
+                over = Color.RED;
+                black = false;
+
+                repaint();
+            }else{
+                BGcolor = Color.WHITE;
+                snackcolor = Color.BLACK;
+                textcolor = Color.BLACK;
+                over = Color.BLUE;
+                black = true;
+
+                repaint();
+            }
+        } else if(e.getKeyCode() == KeyEvent.VK_W){
+            if(speed > 50){
+                speed -= 10;
+                gameLoop.setDelay(speed);
+            }
+
+        } else if(e.getKeyCode() == KeyEvent.VK_S){
+            if(speed < 150) {   
+                speed += 10;
+                gameLoop.setDelay(speed);
+            }
+
         }
 
         if (gameOver) {
@@ -182,6 +233,8 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
                 snackBody.clear();
                 velocityX = 0;
                 velocityY = 0;
+                speed = 100;
+                gameLoop.setDelay(speed);
                 placefood();
                 gameLoop.start();
             }
@@ -203,6 +256,7 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
     public static void main(String[] args) {
         Frame frame = new Frame("Snack Game");
         SnackGame game = new SnackGame(600, 600);
+
         frame.add(game);
         frame.pack();
         frame.setSize(650, 650);
@@ -226,7 +280,9 @@ public class SnackGame extends Canvas implements ActionListener, KeyListener {
 
 
 
-
+// String colorString = "#FF5733"; // You can also use "255,87,51"
+//         Color backgroundColor = CustomColorExample.getCustomColor(colorString);
+//         frame.setBackground(backgroundColor);
 
 
 // import java.awt.*;
