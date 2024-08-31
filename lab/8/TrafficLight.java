@@ -8,8 +8,6 @@ public class TrafficLight extends Frame implements ItemListener {
     Color Yellowcolor = Color.WHITE;
     Color Greencolor = Color.WHITE;
 
-    boolean gameend = false;
-
     CheckboxGroup cbg = new CheckboxGroup();
 
 
