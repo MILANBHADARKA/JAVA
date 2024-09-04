@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Guicalculator",
+      "request": "launch",
+      "mainClass": "Guicalculator",
+      "projectName": "JAVA_4676e6de"
+    },
+    {
+      "type": "java",
+      "name": "CardLayoutDemo",
+      "request": "launch",
+      "mainClass": "CardLayoutDemo",
+      "projectName": "JAVA_4676e6de"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
