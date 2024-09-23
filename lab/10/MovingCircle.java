@@ -86,12 +86,15 @@ public class MovingCircle extends Frame implements Runnable {
     }
 
     public void paint(Graphics g){
-        g.setColor(Color.pink);
-
-
+        g.setColor(Color.red);
+        
+        
         g.fillOval(circle1x, circle1y, 50, 50);
+        g.setColor(Color.blue);
         g.fillOval(circle2x, circle2y, 50, 50);
+        g.setColor(Color.pink);
         g.fillOval(circle3x, circle3y, 50, 50);
+        g.setColor(Color.yellow);
         g.fillOval(circle4x, circle4y, 50, 50);
     }
 
