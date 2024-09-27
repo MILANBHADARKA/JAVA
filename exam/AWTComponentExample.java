@@ -33,7 +33,7 @@ public class AWTComponentExample {
         educationList.add("Artist");
 
         Label benefitsLabel = new Label("Benefits of Education:");
-       Scrollbar benefitsScrollbar = new Scrollbar(Scrollbar.HORIZONTAL, 0, 10, 0, 100);
+       Scrollbar benefitsScrollbar = new Scrollbar(Scrollbar.HORIZONTAL, 0, 1, 0, 11);  
     //    Scrollbar benefitsScrollbar = new Scrollbar(Scrollbar.VERTICAL, 0, 10, 0, 100);
 		// Scrollbar benefitsScrollbar = new Scrollbar();
 
