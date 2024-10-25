@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.CardLayout;
 import java.awt.event.*;
 
 class CardLayoutt extends Frame implements ActionListener

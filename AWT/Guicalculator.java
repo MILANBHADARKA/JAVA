@@ -26,7 +26,7 @@ public class Guicalculator extends Frame  {
 
         setLayout(null);
 
-        tf.setBounds(0,0,400,80);
+        tf.setBounds(0,0,400,80);    // x,y,width,height
         add(tf);
 
         b1.setBounds(0,80,133,80);

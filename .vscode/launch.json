@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MyFrame",
+      "request": "launch",
+      "mainClass": "MyFrame",
+      "projectName": "JAVA_4676e6de"
+    },
+    {
+      "type": "java",
       "name": "Guicalculator",
       "request": "launch",
       "mainClass": "Guicalculator",
