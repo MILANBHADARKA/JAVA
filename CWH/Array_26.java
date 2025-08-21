@@ -8,7 +8,7 @@ public class Array_26 {
         // int marks[] = new int[5];
 
         // int[] marks = {1, 2, 3, 4, 5};
-        int marks[] = {1, 2, 3, 4, 5};
+        int[] marks = {1, 2, 3, 4, 5};
 
         System.out.println(marks[0]);
         System.out.println(marks[1]);
@@ -18,16 +18,16 @@ public class Array_26 {
 
         System.out.println(marks.length);
 
-        for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i]);
+        for (int mark : marks) {
+            System.out.println(mark);
         }
 
         for (int i = 0; i < marks.length; i++) {
             marks[i] = i + 1;
         }
 
-        for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i]);
+        for (int mark : marks) {
+            System.out.println(mark);
         }
 
 

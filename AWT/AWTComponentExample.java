@@ -87,7 +87,7 @@ public class AWTComponentExample {
         frame.add(canvasDemo);
 
         frame.add(new Label("")); // Empty cell for spacing
-        Panel buttonPanel = new Panel(); // Panel to hold submit button
+        Panel buttonPanel = new Panel(); // Panel to hold submit button 
         buttonPanel.add(submitButton);
         frame.add(buttonPanel);
 

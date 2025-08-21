@@ -7,13 +7,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class canvas extends JFrame implements MouseListener, MouseMotionListener {
+public class canvas_example extends JFrame implements MouseListener, MouseMotionListener {
 
 	// create a canvas
 	Canvas c;
 
 	// constructor
-	canvas()
+	canvas_example()
 	{
 		super("canvas");
 
@@ -90,6 +90,6 @@ class canvas extends JFrame implements MouseListener, MouseMotionListener {
 	// main class
 	public static void main(String args[])
 	{
-		canvas c = new canvas();
+		canvas_example c = new canvas_example();
 	}
 }
